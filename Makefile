@@ -11,7 +11,7 @@ build-docker: ## initialize docker image
 	$(DOCKER) build -t $(IMAGE_NAME) -f $(DOCKERFILE) --build-arg UID=$(shell id -u) .
 
 jupyter: ## start Jupyter Notebook server
-	jupyter lab --no-browser --ip=0.0.0.0 --port=${JUPYTER_CONTAINER_PORT} --allow-root
+	$(DOCKER) exec -u 0 -t $(CONTAINER_NAME) bash -c "jupyter lab --no-browser --ip=0.0.0.0 --port=${JUPYTER_CONTAINER_PORT} --allow-root"
 
 run-cont: ## create docker container
 	$(DOCKER) run -it -d -v $(PWD):/work -p $(JUPYTER_HOST_PORT):$(JUPYTER_CONTAINER_PORT) --name $(CONTAINER_NAME) $(IMAGE_NAME)
