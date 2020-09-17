@@ -25,3 +25,6 @@ stop-cont:
 
 rm-cont:
 	-$(DOCKER) rm $(CONTAINER_NAME)
+
+start-cont:
+	-$(DOCKER) start $(CONTAINER_NAME)
