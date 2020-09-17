@@ -14,7 +14,7 @@ jupyter: ## start Jupyter Notebook server
 	$(DOCKER) exec -u 0 -t $(CONTAINER_NAME) bash -c "jupyter lab --no-browser --ip=0.0.0.0 --port=${JUPYTER_CONTAINER_PORT} --allow-root"
 
 run-cont: ## create docker container
-	$(DOCKER) run -it -d -v $(PWD):/work -p $(JUPYTER_HOST_PORT):$(JUPYTER_CONTAINER_PORT) --name $(CONTAINER_NAME) $(IMAGE_NAME)
+	$(DOCKER) run -it -d -v $(PWD):/opt/ml/ -p $(JUPYTER_HOST_PORT):$(JUPYTER_CONTAINER_PORT) --name $(CONTAINER_NAME) $(IMAGE_NAME)
 	$(DOCKER) exec -u 0 -t $(CONTAINER_NAME) bash -c "pip install -e /opt/ml/"
 
 rm-img:
