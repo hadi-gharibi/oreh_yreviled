@@ -3,3 +3,5 @@ seaborn
 scikit-learn
 numpy
 jupyterlab
+yellowbrick
+xgboost
