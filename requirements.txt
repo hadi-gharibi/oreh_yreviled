@@ -3,3 +3,6 @@ seaborn
 scikit-learn
 numpy
 jupyterlab
+yellowbrick
+xgboost
+category-encoders
